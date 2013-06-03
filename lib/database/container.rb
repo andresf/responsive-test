@@ -1,3 +1,3 @@
 class Container < Element
-  embeds_many :elements
+  embeds_many :elements, as: :parent
 end

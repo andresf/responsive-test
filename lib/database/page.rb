@@ -1,5 +1,6 @@
 class Page
   include Mongoid::Document
 
-  embeds_one :container
+  field :title
+  embeds_one :container, as: :parent
 end
