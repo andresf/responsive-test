@@ -6,7 +6,7 @@ class Application < Sinatra::Application
 
   get '/data' do
     content_type :json
-    Page.first.extend(Representers::Page).to_json
+    Page.last.extend(Representers::Page).to_json
   end
 
 end

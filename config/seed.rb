@@ -1,5 +1,5 @@
 page = Page.create(title: 'Test Page')
-page.container = 
+page.container =
   (canvas = Container.new)
 
 canvas.elements.create({ logo_url: 'logo.png', text: 'Title', size: '1x4' }, Header)
