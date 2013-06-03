@@ -1,5 +1,4 @@
 GEM
-  remote: http://rubygems.org/
   specs:
     activemodel (3.2.13)
       activesupport (= 3.2.13)
@@ -36,10 +35,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   mongoid
-  racksh
-=======
   rack
->>>>>>> c0c06428872f8eac7b005f34ec1a8208b197e97c
+  racksh
   sinatra
