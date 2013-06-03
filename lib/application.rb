@@ -4,4 +4,9 @@ class Application < Sinatra::Application
     erb :index
   end
 
+  get '/data' do
+    content_type :json
+    Page.first.extend(Representers::Page).to_json
+  end
+
 end
