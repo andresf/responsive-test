@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'mongoid'
+require 'roar/representer/json'
 
 require_relative "lib/database/element.rb"
 

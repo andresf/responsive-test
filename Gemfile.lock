@@ -15,6 +15,7 @@ GEM
       tzinfo (~> 0.3.22)
     moped (1.5.0)
     multi_json (1.7.4)
+    nokogiri (1.5.9)
     origin (1.1.0)
     rack (1.5.2)
     rack-protection (1.5.0)
@@ -24,6 +25,11 @@ GEM
     racksh (1.0.0)
       rack (>= 1.0)
       rack-test (>= 0.5)
+    representable (1.5.3)
+      multi_json
+      nokogiri
+    roar (0.11.18)
+      representable (>= 1.5.2)
     sinatra (1.4.2)
       rack (~> 1.5, >= 1.5.2)
       rack-protection (~> 1.4)
@@ -38,4 +44,5 @@ DEPENDENCIES
   mongoid
   rack
   racksh
+  roar
   sinatra
