@@ -68,8 +68,8 @@ body {
   }
   .component-text.values {
     font-size: 2.2em;
-    line-height: 2.4em;
-    margin: 3.5em 0 0 0;
+    line-height: 1.2em;
+    margin: 2em 0 0 0;
   }
 }
 
