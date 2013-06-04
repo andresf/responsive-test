@@ -6,8 +6,8 @@ page.container =
 canvas.elements.create({ logo_url: 'img/logo.png', size: '1x4' }, Header)
 
 canvas.elements << (intro = Container.new(size: '2x4'))
-intro.elements.create({ size: '2x4', url: 'img/office.png' }, Image)
-intro.elements.create({ size: '2x4', markdown:
+intro.elements.create({ size: '2x2', url: 'img/office.png' }, Image)
+intro.elements.create({ size: '2x2', markdown:
   "<h1>Don't find just a job, find your dream job</h1>
 <p><strong>\ˈdrēm jäb\</strong><p/><p>A job in a place that inspires you, a place where you can contribute your talent to a shared mission.</p>" }, Text)
 intro.save!
