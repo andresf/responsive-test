@@ -17,13 +17,13 @@ canvas.elements.create({ size: '1x4', markdown:
 
 canvas.elements << (photos = Container.new(size: '2x4'))
 photos.elements.create({ size: '1x1', url: 'img/pic1.png' }, Image)
-photos.elements.create({ size: '1x1', markdown: 'Love what you do' }, Text)
+photos.elements.create({ size: '1x1', markdown: 'Love what you do', css_class: 'values' }, Text)
 photos.elements.create({ size: '1x1', url: 'img/pic2.png' }, Image)
-photos.elements.create({ size: '1x1', markdown: 'Create impact' }, Text)
+photos.elements.create({ size: '1x1', markdown: 'Create impact', css_class: 'values' }, Text)
+photos.elements.create({ size: '1x1', markdown: 'Have fun', css_class: 'values' }, Text)
 photos.elements.create({ size: '1x1', url: 'img/pic3.png' }, Image)
-photos.elements.create({ size: '1x1', markdown: 'Have fun' }, Text)
+photos.elements.create({ size: '1x1', markdown: 'Try new things', css_class: 'values' }, Text)
 photos.elements.create({ size: '1x1', url: 'img/pic4.png' }, Image)
-photos.elements.create({ size: '1x1', markdown: 'Try new things' }, Text)
 photos.save!
 
 canvas.elements.create({ size: '1x4', markdown:

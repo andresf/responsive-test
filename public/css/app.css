@@ -1,12 +1,20 @@
 /*Here goes the custom CSS*/
 body {
   background: #e3e3e3;
-  padding: 0 50px 50px 50px;
+  margin: 0 auto;
 }
 
 .column {
   overflow: hidden;
   padding: 0;
+}
+
+.values {
+  color: #7a7a7a;
+  font-size: 2em;
+  line-height: 1.2em;
+  margin-top: 1em;
+  text-align: center;
 }
 
 .row {
@@ -15,11 +23,72 @@ body {
 }
 
 .row .row {
-  margin: 0 0 20px 0;
+  margin: 0 0 1em 0;
 }
 
-.component-header.rows-1{
+.component-header.rows-1 {
   background: #000;
   height: 102px;
   padding: 10px 0 0 10px;
+}
+
+.component-header .twitter {
+  background: url('/img/twitter.png') no-repeat center center;
+  display: inline-block;
+  height: 20px;
+  position: absolute;
+  right: 20px;
+  top: 45px;
+  width: 55px;
+}
+
+.component-header .facebook {
+  background: url('/img/facebook.png') no-repeat center center;
+  display: inline-block;
+  height: 20px;
+  position: absolute;
+  right: 85px;
+  top: 45px;
+  width: 55px;
+}
+
+.component-text, .component-button {
+  padding: 0 0 0 5%;
+}
+
+@media only screen and (min-width : 1224px) {
+  body {
+    width: 70%
+  }
+  .component-text, .component-button {
+    padding: 0
+  }
+  .values {
+    font-size: 2.4em;
+    line-height: 2.4em;
+    margin-top: 3.5em;
+  }
+}
+
+@media only screen and (min-width : 1224px) {
+  body {
+    width: 70%
+  }
+  .component-text, .component-button {
+    padding: 0
+  }
+  .values {
+    font-size: 2.4em;
+    line-height: 2.4em;
+    margin-top: 3.5em;
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .component-header .twitter {
+    display: none;
+  }
+  .component-header .facebook {
+    display: none;
+  }
 }

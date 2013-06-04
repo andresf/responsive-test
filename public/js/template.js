@@ -3,9 +3,6 @@ var Template = {};
 Template.row =
   '<div class="row"></div>';
 
-Template.header =
-  '<div class="header"></div>';
-
 Template.container =
   '<div class="small-<%= cols %> rows-<%= rows %> component-container column">' +
   '</div>';
@@ -15,10 +12,12 @@ Template.header =
     '<header>' +
       '<image src="<%= logo_url %>">' +
     '</header>' +
+    '<span class="twitter"></span>' +
+    '<span class="facebook"></span>' +
   '</div>';
 
 Template.text =
-  '<div class="large-<%= cols %> rows-<%= rows %> component-text column">' +
+  '<div class="large-<%= cols %> <%= typeof(css_class) != "undefined" ? css_class : "" %> rows-<%= rows %> component-text column">' +
     '<%= markdown %>' +
   '</div>';
 
