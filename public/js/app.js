@@ -16,14 +16,13 @@ App.init = function() {
         success: function(data) {
             App.renderGrid(data.elements.elements);
         }
-    })
+    });
 };
 
-App.renderRow = function() {
-    var $canvas = $('#canvas');
-
-    $canvas.append(_.template(Template.row, {}));
-    return $canvas.find('.row').last();
+App.renderRow = function($parent) {
+    $parent = $parent || $('#canvas');
+    $parent.append(_.template(Template.row, {}));
+    return $parent.find('.row').last();
 };
 
 App.getBlockDimensions = function(data) {
@@ -33,29 +32,29 @@ App.getBlockDimensions = function(data) {
     return data;
 };
 
-App.renderGrid = function(data) {
+App.renderGrid = function(data, $parent) {
     var available_rows = App.rows,
-        $row = App.renderRow();
+        $row = App.renderRow($parent),
+        component_type;
 
     for (var i=0;i<data.length;i++) {
-        if (data[i].type.toLowerCase() === 'filler') continue;
+        component_type = data[i].type.toLowerCase();
 
-        if (data[i].elements) {
-            App.renderGrid(data[i].elements);
-        }
+        if (component_type !== 'filler' && Template[component_type]) {
+            data[i] = App.getBlockDimensions(data[i]);
 
-        data[i] = App.getBlockDimensions(data[i]);
+            if (available_rows - data[i].cols >= 0) {
+                available_rows -= data[i].cols;
+            } else {
+                available_rows = App.rows - data[i].cols;
+                $row = App.renderRow($parent);
+            }
 
-        if (available_rows - data[i].width >= 0) {
-            available_rows -= data[i].width;
-        } else {
-            available_rows = App.rows - data[i].width;
-            $row = App.renderRow();
-        }
+            $row.append(_.template(Template[component_type], data[i]));
 
-        if (Template[data[i].type.toLowerCase()]) {
-            $row.append(_.template(Template[data[i].type.toLowerCase()],
-                data[i]));
+            if (data[i].elements && data[i].elements.length > 0) {
+                App.renderGrid(data[i].elements, $row.find('.component-'+component_type));
+            }
         }
     }
 };

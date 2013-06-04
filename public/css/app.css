@@ -1,31 +1,21 @@
 /*Here goes the custom CSS*/
 body {
   background: #e3e3e3;
+  padding: 0 50px 50px 50px;
 }
 
 .column {
-  outline: 1px solid #f00;
   overflow: hidden;
+  padding: 0;
 }
 
 .row {
   max-width: 100%;
+  margin: 0;
 }
 
-.rows-1 {
-  height: 10em;
-}
-
-.rows-2 {
-  height: 20em;
-}
-
-.rows-3 {
-  height: 30em;
-}
-
-.rows-4 {
-  height: 40em;
+.row .row {
+  margin: 0 0 20px 0;
 }
 
 .component-header.rows-1{
