@@ -9,11 +9,13 @@ body {
   padding: 0;
 }
 
-.values {
+.component-text.values {
   color: #7a7a7a;
-  font-size: 2em;
-  line-height: 1.2em;
-  margin-top: 1em;
+  font-size: 1.8em;
+  font-weight: bold;
+  line-height: 1.3em;
+  margin: .5em 0 .5em 0;
+  padding: 0 .5em;
   text-align: center;
 }
 
@@ -56,19 +58,6 @@ body {
   padding: 0 0 0 5%;
 }
 
-@media only screen and (min-width : 1224px) {
-  body {
-    width: 70%
-  }
-  .component-text, .component-button {
-    padding: 0
-  }
-  .values {
-    font-size: 2.4em;
-    line-height: 2.4em;
-    margin-top: 3.5em;
-  }
-}
 
 @media only screen and (min-width : 1224px) {
   body {
@@ -77,10 +66,10 @@ body {
   .component-text, .component-button {
     padding: 0
   }
-  .values {
-    font-size: 2.4em;
+  .component-text.values {
+    font-size: 2.2em;
     line-height: 2.4em;
-    margin-top: 3.5em;
+    margin: 3.5em 0 0 0;
   }
 }
 
