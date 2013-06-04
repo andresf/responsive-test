@@ -11,7 +11,12 @@ App.rows = 12;
 App.block_size = 3;
 
 App.init = function() {
-    App.renderGrid(App.getDummyData());
+    $.ajax({
+        url: 'http://localhost:4567/data',
+        success: function(data) {
+            App.renderGrid(data.elements.elements);
+        }
+    })
 };
 
 App.renderRow = function() {
@@ -21,24 +26,9 @@ App.renderRow = function() {
     return $canvas.find('.row').last();
 };
 
-App.validSize = function(size) {
-    var valid = false;
-
-    switch(size) {
-        case '1x1':
-        case '2x1':
-        case '4x1':
-        case '4x3':
-        case '4x4':
-            valid = true;
-    }
-
-    return valid;
-};
-
 App.getBlockDimensions = function(data) {
-    data.width = parseInt(data.size.split('x')[0], 10) * App.block_size;
-    data.height = parseInt(data.size.split('x')[1], 10);
+    data.rows = parseInt(data.size.split('x')[0], 10);
+    data.cols = parseInt(data.size.split('x')[1], 10) * App.block_size;
 
     return data;
 };
@@ -48,49 +38,24 @@ App.renderGrid = function(data) {
         $row = App.renderRow();
 
     for (var i=0;i<data.length;i++) {
-        if (App.validSize(data[i].size)) {
-            data[i] = App.getBlockDimensions(data[i]);
+        if (data[i].type.toLowerCase() === 'filler') continue;
 
-            if (available_rows - data[i].width >= 0) {
-                available_rows -= data[i].width;
-            } else {
-                available_rows = App.rows - data[i].width;
-                $row = App.renderRow();
-            }
+        if (data[i].elements) {
+            App.renderGrid(data[i].elements);
+        }
 
-            $row.append(_.template(Template[data[i].type], data[i]));
+        data[i] = App.getBlockDimensions(data[i]);
+
+        if (available_rows - data[i].width >= 0) {
+            available_rows -= data[i].width;
+        } else {
+            available_rows = App.rows - data[i].width;
+            $row = App.renderRow();
+        }
+
+        if (Template[data[i].type.toLowerCase()]) {
+            $row.append(_.template(Template[data[i].type.toLowerCase()],
+                data[i]));
         }
     }
-};
-
-App.getDummyData = function() {
-    var data = [];
-
-    data.push({
-        type: 'container',
-        size: '4x3',
-        text: 'This is a text element '
-    });
-
-    data.push({
-        type: 'text',
-        size: '1x1',
-        text: 'This is a text element '
-    });
-
-    for (var i=2;i<10;i++) {
-        data.push({
-            type: 'image',
-            size: '1x1',
-            source: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnq0XsBBJm41Y9lNpe2LgLfNn_JMF_Lkpo1OSbQa1rD-xoj0eC'
-        });
-    }
-
-    data.push({
-        type: 'text',
-        size: '1x1',
-        text: 'This is a text element'
-    });
-
-    return data;
 };

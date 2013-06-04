@@ -1,4 +1,7 @@
 /*Here goes the custom CSS*/
+body {
+  background: #e3e3e3;
+}
 
 .column {
   outline: 1px solid #f00;
@@ -23,4 +26,10 @@
 
 .rows-4 {
   height: 40em;
+}
+
+.component-header.rows-1{
+  background: #000;
+  height: 102px;
+  padding: 10px 0 0 10px;
 }

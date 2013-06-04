@@ -3,11 +3,11 @@ page = Page.create(title: 'Wowzer')
 page.container =
   (canvas = Container.new)
 
-canvas.elements.create({ logo_url: 'logo.png', size: '1x4' }, Header)
+canvas.elements.create({ logo_url: 'img/logo.png', size: '1x4' }, Header)
 
 canvas.elements << (intro = Container.new(size: '2x4'))
-intro.elements.create({ size: '2x4', url: 'office.png' }, Image)
-intro.elements.create({ size: '2x4', markdown: 
+intro.elements.create({ size: '2x4', url: 'img/office.png' }, Image)
+intro.elements.create({ size: '2x4', markdown:
   "<h1>Don't find just a job, find your dream job</h1>
 <p><strong>\ˈdrēm jäb\</strong><p/><p>A job in a place that inspires you, a place where you can contribute your talent to a shared mission.</p>" }, Text)
 intro.save!
@@ -16,13 +16,13 @@ canvas.elements.create({ size: '1x4', markdown:
                          "<h2>Values & Work Environment</h2>" }, Text)
 
 canvas.elements << (photos = Container.new(size: '2x4'))
-photos.elements.create({ size: '1x1', url: 'pic1.png' }, Image)
+photos.elements.create({ size: '1x1', url: 'img/pic1.png' }, Image)
 photos.elements.create({ size: '1x1', markdown: 'Love what you do' }, Text)
-photos.elements.create({ size: '1x1', url: 'pic2.png' }, Image)
+photos.elements.create({ size: '1x1', url: 'img/pic2.png' }, Image)
 photos.elements.create({ size: '1x1', markdown: 'Create impact' }, Text)
-photos.elements.create({ size: '1x1', url: 'pic3.png' }, Image)
+photos.elements.create({ size: '1x1', url: 'img/pic3.png' }, Image)
 photos.elements.create({ size: '1x1', markdown: 'Have fun' }, Text)
-photos.elements.create({ size: '1x1', url: 'pic4.png' }, Image)
+photos.elements.create({ size: '1x1', url: 'img/pic4.png' }, Image)
 photos.elements.create({ size: '1x1', markdown: 'Try new things' }, Text)
 photos.save!
 
